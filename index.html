@@ -5,19 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI² — AI for All of Ireland</title>
   <meta name="description" content="AI² (AI Squared) is a community initiative to explore and advance responsible AI across Ireland." />
-  <meta property="og:title" content="AI² — AI for All of Ireland" />
-  <meta property="og:description" content="A community for researchers, industry, educators, and the public to collaborate on AI in Ireland." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0b6cff" />
-
-  <!-- External stylesheet: put this file at assets/css/style.css -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .logo-img {
+      width: 40px;
+      height: auto;
+      display: block;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-art img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,.25);
+      display: block;
+      margin: 0 auto;
+    }
+      /* Carousel fixes */
+    .carousel{position:relative}
+    .carousel-btn{z-index:3; pointer-events:auto}
+  </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"><span>AI²</span></div>
+        <img src="img/logo.png" alt="AI² Logo" class="logo-img" />
         <strong>AI² — Ireland</strong>
       </div>
       <nav aria-label="Primary">
@@ -46,12 +65,14 @@
               <a class="btn" href="#about">Learn More</a>
             </div>
           </div>
-          <div class="hero-art">Hero image / illustration placeholder</div>
+          <div class="hero-art">
+            <img src="img/kickoff.png" alt="AI² Kickoff Meeting" />
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About: Mission / Vision / What we do -->
+    <!-- About -->
     <section id="about">
       <div class="container">
         <p class="kicker">About</p>
@@ -59,15 +80,15 @@
         <div class="cards">
           <article class="card">
             <h3>Mission</h3>
-            <p>Write a short paragraph here about AI²’s mission — e.g., enabling responsible, accessible AI across Ireland through open collaboration, education, and community projects.</p>
+            <p>To create a blueprint for the responsible adoption of AI to be employed by individual industry sectors for the benefit of all of its members and civil society.</p>
           </article>
           <article class="card">
             <h3>Vision</h3>
-            <p>Add a concise vision — e.g., an Ireland where AI capability is widespread, ethical, locally relevant, and globally connected.</p>
+            <p>Accelerate the adoption of AI for Ireland</p>
           </article>
           <article class="card">
             <h3>What We Do</h3>
-            <p>Bulleted ideas: meetups, workshops, open‑source projects, policy roundtables, student programmes, regional chapters across the island, etc.</p>
+            <p>We hope to form a community for advocating the adoption of AI for All of Ireland.</p>
           </article>
         </div>
       </div>
@@ -78,34 +99,19 @@
       <div class="container">
         <p class="kicker">Community</p>
         <h2 class="section-title">Who’s Involved</h2>
-        <div class="people" role="list">
-          <!-- Duplicate these person cards as needed -->
-          <div class="person" role="listitem">
-            <div class="avatar" aria-hidden="true">IMG</div>
+        <div class="people">
+          <div class="person">
+            <div class="avatar"><img src="img/person1.png" alt="Person One" /></div>
             <div>
-              <h4>Person One</h4>
-              <p>Role / Affiliation — short bio line.</p>
+              <h4>Ivan Jennings</h4>
+              <p>Chairman</p>
             </div>
           </div>
-          <div class="person" role="listitem">
-            <div class="avatar" aria-hidden="true">IMG</div>
+          <div class="person">
+            <div class="avatar"><img src="img/person2.png" alt="Person Two" /></div>
             <div>
-              <h4>Person Two</h4>
-              <p>Role / Affiliation — short bio line.</p>
-            </div>
-          </div>
-          <div class="person" role="listitem">
-            <div class="avatar" aria-hidden="true">IMG</div>
-            <div>
-              <h4>Person Three</h4>
-              <p>Role / Affiliation — short bio line.</p>
-            </div>
-          </div>
-          <div class="person" role="listitem">
-            <div class="avatar" aria-hidden="true">IMG</div>
-            <div>
-              <h4>Person Four</h4>
-              <p>Role / Affiliation — short bio line.</p>
+              <h4>Jane Doe</h4>
+              <p>Role / Affiliation.</p>
             </div>
           </div>
         </div>
@@ -115,75 +121,85 @@
     <!-- Events -->
     <section id="events">
       <div class="container">
-        <p class="kicker">Happenings</p>
+        <p class="kicker">Events</p>
         <h2 class="section-title">Upcoming Events</h2>
-
-        <!-- Card list (hook up to your data source later) -->
-        <div class="events" role="list">
-          <article class="event card" role="listitem">
+        <div class="cards">
+          <article class="card">
             <h3>AI² Launch Meetup — Dublin</h3>
-            <p><strong>Date:</strong> 10 Oct 2025 · <strong>Time:</strong> 18:30–20:30 · <strong>Venue:</strong> TBC</p>
-            <p class="muted">Intro talks, lightning demos, and community discussion. RSVP via the contact form.</p>
+            <p><strong>Date:</strong> 2025-10-25 • <strong>Time:</strong> 12:30–16:30 • <strong>Venue:</strong> TBD</p>
+            <p class="muted">Join us for our official launch including a keynote from Kim Henriksson from AI Sweden</p>
+            <p><a class="btn" href="https://www.eventbrite.com/e/example-launch-meetup" target="_blank" rel="noopener">Register on Eventbrite</a></p>
           </article>
-          <article class="event card" role="listitem">
-            <h3>AI in Education Roundtable — Galway</h3>
-            <p><strong>Date:</strong> 24 Oct 2025 · <strong>Time:</strong> 14:00–16:00 · <strong>Venue:</strong> TBC</p>
+          <article class="card">
+            <h3>AI in Education Roundtable — EXAMPLE EVENT</h3>
+            <p><strong>Date:</strong> 2025-10-24 • <strong>Time:</strong> 14:00–16:00 • <strong>Venue:</strong> TBC</p>
             <p class="muted">Policy & pedagogy focused session with educators and students.</p>
+            <p><a class="btn" href="https://www.eventbrite.com/e/example-education-roundtable" target="_blank" rel="noopener">Register on Eventbrite</a></p>
           </article>
-        </div>
-
-        <!-- Optional: Google Calendar embed placeholder -->
-        <div class="iframe-wrap" aria-label="Google Calendar embed placeholder" style="margin-top:18px">
-          <!-- Replace src with your public Google Calendar embed URL if you want a live calendar view.
-          <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_PUBLIC_CAL_ID&mode=AGENDA" frameborder="0" scrolling="no"></iframe> -->
-          <div class="imgph" style="height:360px">Google Calendar / Events iFrame Placeholder</div>
         </div>
       </div>
     </section>
 
-    <!-- Image placeholders / gallery -->
+    <!-- Gallery -->
     <section id="gallery">
       <div class="container">
         <p class="kicker">Images</p>
         <h2 class="section-title">Media & Moments</h2>
-        <div class="gallery">
-          <div class="imgph">Image 1</div>
-          <div class="imgph">Image 2</div>
-          <div class="imgph">Image 3</div>
-          <div class="imgph">Image 4</div>
-          <div class="imgph">Image 5</div>
-          <div class="imgph">Image 6</div>
+
+        <!-- Carousel -->
+        <div class="carousel" data-autoplay="5000" aria-roledescription="carousel">
+          <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+          <div class="carousel-viewport" tabindex="0">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <img src="img/kickoff.png" alt="AI² Kickoff Meeting" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/photo2.png" alt="Community meetup" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/photo3.png" alt="Workshop session" />
+              </div>
+            </div>
+          </div>
+          <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
         </div>
       </div>
     </section>
 
-    <!-- Contact / Google Forms integration -->
+    <!-- Contact -->
     <section id="contact">
       <div class="container">
         <p class="kicker">Get Involved</p>
         <h2 class="section-title">Contact Us</h2>
+
         <div class="contact">
-          <form aria-label="Contact form (direct to Google Forms)">
-            <!-- Replace with your Google Form POST endpoint + IDs -->
-            <input type="hidden" name="fvv" value="1" />
-            <input type="hidden" name="fbzx" value="" />
+          <!-- Native form: handled by your backend (e.g., /contact) -->
+          <form id="contact-form" action="/contact" method="POST" aria-label="Contact AI²">
             <label for="name">Name</label>
-            <input id="name" name="entry.111111" placeholder="Your name" required />
+            <input id="name" name="name" placeholder="Your name" required />
 
             <label for="email">Email</label>
-            <input id="email" type="email" name="entry.222222" placeholder="you@example.ie" required />
+            <input id="email" name="email" type="email" placeholder="you@example.ie" required />
 
             <label for="message">Message</label>
-            <textarea id="message" name="entry.333333" placeholder="How would you like to participate?"></textarea>
+            <textarea id="message" name="message" placeholder="How would you like to participate?" required></textarea>
 
-            <p class="hint">Note: This sample posts to Google Forms. Swap the <code>action</code> and <code>entry.*</code> IDs to match your form.</p>
-            <button class="btn primary" type="submit" disabled title="Add your Google Forms action URL to enable">Send</button>
+            <!-- Optional: add a hidden field to route to Google Forms server-side -->
+            <input type="hidden" name="forward_to" value="google-forms" />
+
+            <button class="btn primary" type="submit">Send</button>
+            <div id="contact-status" class="hint" role="status" aria-live="polite"></div>
+            <div id="contact-success" class="card" style="margin-top:12px; display:none;">
+              <p><strong>Thank you!</strong> We’ve received your message and will be in touch soon.</p>
+            </div>
           </form>
 
-          <div class="iframe-wrap" aria-label="Embedded Google Form placeholder">
-            <!-- Embed the live Google Form here (replace src) -->
-            <div class="imgph" style="height:100%">Google Form iFrame Placeholder</div>
-          </div>
+          <aside class="join-box">
+            <h3>Join our LinkedIn Group</h3>
+            <p>Be part of the conversation and help shape AI for all of Ireland.</p>
+            <p><a class="btn" href="https://www.linkedin.com/groups/13298210/" target="_blank" rel="noopener">Join the AI² LinkedIn Group</a></p>
+          </aside>
         </div>
       </div>
     </section>
@@ -191,18 +207,11 @@
 
   <footer>
     <div class="container">
-      <div class="footer-inner">
-        <p>© <span id="y"></span> AI² — AI for All of Ireland • Made with ❤ on the island of Ireland</p>
-        <p>
-          <a href="#about">About</a> ·
-          <a href="#who">Who</a> ·
-          <a href="#events">Events</a> ·
-          <a href="#contact">Contact</a>
-        </p>
-      </div>
+      <p>© <span id="y"></span> AI² — AI for All of Ireland</p>
     </div>
   </footer>
 
+  <script src="js/main.js" defer></script>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
