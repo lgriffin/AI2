@@ -245,10 +245,49 @@
                 <img src="img/kickoff.png" alt="AI² Kickoff Meeting" />
               </div>
               <div class="carousel-slide">
-                <img src="img/photo2.png" alt="Community meetup" />
+                <img src="img/31DD0EE4-3799-40A3-86FC-C1CCC071AB81.PNG" alt="AI² Community Discussion" />
               </div>
               <div class="carousel-slide">
-                <img src="img/photo3.png" alt="Workshop session" />
+                <img src="img/IMG_1728.jpg" alt="AI² Event Photo" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/IMG_2052.jpg" alt="AI² Community Gathering" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/IMG_2058.jpg" alt="AI² Workshop Session" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_132547076.jpg" alt="AI² March 2025 Event - Opening" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_141409309.jpg" alt="AI² March 2025 Event - Presentation" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_160444501.jpg" alt="AI² March 2025 Event - Networking" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_160457029.jpg" alt="AI² March 2025 Event - Discussion" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_160518052.jpg" alt="AI² March 2025 Event - Collaboration" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_160527530.jpg" alt="AI² March 2025 Event - Team Work" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_162302236.MP.jpg" alt="AI² March 2025 Event - Group Photo" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_165051110.jpg" alt="AI² March 2025 Event - Closing Session" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_165404047.jpg" alt="AI² March 2025 Event - Final Discussion" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_165413473.jpg" alt="AI² March 2025 Event - Wrap Up" />
+              </div>
+              <div class="carousel-slide">
+                <img src="img/PXL_20250327_165416090.jpg" alt="AI² March 2025 Event - Conclusion" />
               </div>
             </div>
           </div>
@@ -264,24 +303,42 @@
         <h2 class="section-title">Contact Us</h2>
 
         <div class="contact">
-          <!-- Native form: handled by your backend (e.g., /contact) -->
-          <form id="contact-form" action="/contact" method="POST" aria-label="Contact AI²">
+          <!-- Formspree form -->
+          <form id="contact-form" action="https://formspree.io/f/myzdqnbv" method="POST" aria-label="Contact AI²">
             <label for="name">Name</label>
             <input id="name" name="name" placeholder="Your name" required />
 
             <label for="email">Email</label>
             <input id="email" name="email" type="email" placeholder="you@example.ie" required />
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="How would you like to participate?" required></textarea>
+            <label for="organisation">Organisation</label>
+            <input id="organisation" name="organisation" placeholder="Your organisation or company" />
 
-            <!-- Optional: add a hidden field to route to Google Forms server-side -->
-            <input type="hidden" name="forward_to" value="google-forms" />
+            <label for="role">Role</label>
+            <input id="role" name="role" placeholder="Your current role or position" />
+
+            <label for="pillar">Which AI² Pillar do you align with most?</label>
+            <select id="pillar" name="pillar" required>
+              <option value="">Select a pillar...</option>
+              <option value="Education and Literacy">Education and Literacy</option>
+              <option value="Advocacy">Advocacy</option>
+              <option value="Safe and Trustworthy AI">Safe and Trustworthy AI</option>
+              <option value="Adoption - Academic Partnerships">Adoption - Academic Partnerships</option>
+              <option value="Adoption - Enterprise and Startup Ecosystem">Adoption - Enterprise and Startup Ecosystem</option>
+              <option value="Adoption - Public and Community Sector">Adoption - Public and Community Sector</option>
+              <option value="General Interest">General Interest</option>
+            </select>
+
+            <label for="interest">Why are you interested in AI²?</label>
+            <textarea id="interest" name="interest" placeholder="Tell us what draws you to AI² and how you'd like to participate..." required></textarea>
+
+            <label for="contribution">What do you bring to the community?</label>
+            <textarea id="contribution" name="contribution" placeholder="Share your skills, experience, or perspective that could benefit AI²..." required></textarea>
 
             <button class="btn primary" type="submit">Send</button>
             <div id="contact-status" class="hint" role="status" aria-live="polite"></div>
             <div id="contact-success" class="card" style="margin-top:12px; display:none;">
-              <p><strong>Thank you!</strong> We’ve received your message and will be in touch soon.</p>
+              <p><strong>Thank you!</strong> We've received your message and will be in touch soon.</p>
             </div>
           </form>
 
