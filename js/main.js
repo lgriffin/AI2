@@ -3,6 +3,59 @@
   const y = document.getElementById('y');
   if (y) y.textContent = new Date().getFullYear();
 
+  // ===== Theme Toggle =====
+  (function themeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    const icon = toggle?.querySelector('.theme-icon');
+    if (!toggle || !icon) return;
+
+    // Get system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Get stored theme or use system preference
+    let currentTheme = localStorage.getItem('theme');
+    if (!currentTheme) {
+      currentTheme = prefersDark ? 'dark' : 'light';
+    }
+
+    // Apply theme
+    function setTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      
+      // Update icon
+      icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+      
+      // Update aria-label
+      toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+    }
+
+    // Initialize theme
+    setTheme(currentTheme);
+
+    // Toggle theme on click
+    toggle.addEventListener('click', () => {
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      // Only auto-switch if user hasn't manually set a preference
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+
+    // Keyboard support
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle.click();
+      }
+    });
+  })();
+
   // ===== Events Loader with inline fallback =====
   (function loadEvents() {
     const container = document.getElementById('events-container') || document.getElementById('events-list');
