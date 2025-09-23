@@ -5,55 +5,81 @@
 
   // ===== Theme Toggle =====
   (function themeToggle() {
-    const toggle = document.getElementById('theme-toggle');
-    const icon = toggle?.querySelector('.theme-icon');
-    if (!toggle || !icon) return;
-
-    // Get system preference
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const desktopToggle = document.getElementById('theme-toggle');
+    const mobileToggle = document.getElementById('mobile-theme-toggle');
+    const desktopIcon = desktopToggle?.querySelector('.theme-icon');
+    const mobileIcon = mobileToggle?.querySelector('.mobile-theme-icon');
     
-    // Get stored theme or use system preference
-    let currentTheme = localStorage.getItem('theme');
-    if (!currentTheme) {
-      currentTheme = prefersDark ? 'dark' : 'light';
-    }
+    // Get stored theme or default to dark
+    let currentTheme = localStorage.getItem('theme') || 'dark';
 
     // Apply theme
     function setTheme(theme) {
+      console.log('Setting theme to:', theme);
       currentTheme = theme;
+      
+      // Set theme attribute - try multiple methods for mobile compatibility
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.className = theme + '-theme';
+      document.body.setAttribute('data-theme', theme);
+      
       localStorage.setItem('theme', theme);
       
-      // Update icon
-      icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+      // Update both icons
+      const iconText = theme === 'dark' ? '🌙' : '☀️';
+      if (desktopIcon) desktopIcon.textContent = iconText;
+      if (mobileIcon) mobileIcon.textContent = iconText;
       
-      // Update aria-label
-      toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+      // Update aria-labels
+      const ariaText = `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`;
+      if (desktopToggle) desktopToggle.setAttribute('aria-label', ariaText);
+      if (mobileToggle) mobileToggle.setAttribute('aria-label', ariaText);
+      
+      console.log('Theme applied:', theme);
     }
 
     // Initialize theme
     setTheme(currentTheme);
 
-    // Toggle theme on click
-    toggle.addEventListener('click', () => {
-      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
+    // Theme toggle function
+    function toggleTheme() {
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    }
 
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      // Only auto-switch if user hasn't manually set a preference
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    });
+    // Desktop theme toggle
+    if (desktopToggle) {
+      desktopToggle.addEventListener('click', toggleTheme);
+      desktopToggle.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
+    }
 
-    // Keyboard support
-    toggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+    // Mobile theme toggle with enhanced touch support
+    if (mobileToggle) {
+      // Multiple event types for better mobile support
+      mobileToggle.addEventListener('click', function(e) {
         e.preventDefault();
-        toggle.click();
-      }
-    });
+        e.stopPropagation();
+        toggleTheme();
+      });
+      
+      mobileToggle.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleTheme();
+      });
+      
+      mobileToggle.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
+    }
   })();
 
   // ===== Events Loader with inline fallback =====
