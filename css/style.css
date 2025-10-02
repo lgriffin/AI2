@@ -208,6 +208,9 @@ footer .container{display:flex;align-items:center;justify-content:space-between;
   h1{font-size:34px}
   .cards{grid-template-columns:1fr}
   .gallery{grid-template-columns:repeat(2,1fr)}
+  .resource-grid{grid-template-columns:1fr}
+  .resource-item{flex-direction:column;text-align:center}
+  .resource-icon{align-self:center}
   
   /* Hide desktop theme toggle on mobile */
   .theme-toggle{
@@ -275,6 +278,38 @@ footer .container{display:flex;align-items:center;justify-content:space-between;
 }
 .carousel-btn.prev{left:10px}
 .carousel-btn.next{right:10px}
+
+/* Resources */
+.resource-category{margin-bottom:40px}
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.resource-item{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);
+  transition:all 0.3s ease;display:flex;gap:16px;align-items:flex-start;
+}
+.resource-item:hover{
+  transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.2);
+  border-color:var(--brand);
+}
+.resource-icon{
+  font-size:24px;flex-shrink:0;width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--soft);border-radius:10px;
+}
+.resource-content{flex:1}
+.resource-content h4{margin:0 0 8px;font-size:16px;color:var(--text)}
+.resource-description{margin:0 0 12px;font-size:14px;color:var(--muted);line-height:1.5}
+.resource-download{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;background:var(--brand);color:#ffffff;
+  border-radius:8px;text-decoration:none;font-weight:600;
+  font-size:14px;transition:all 0.3s ease;
+}
+.resource-download:hover{
+  background:var(--brand-2);transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(62,166,255,.3);text-decoration:none;
+}
+.download-icon{font-size:12px}
 
 /* Contact layout */
 .join-box{
