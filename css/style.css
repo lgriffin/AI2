@@ -272,6 +272,9 @@ footer .container{display:flex;align-items:center;justify-content:space-between;
   .resource-grid{grid-template-columns:1fr}
   .resource-item{flex-direction:column;text-align:center}
   .resource-icon{align-self:center}
+  .resource-category-toggle{padding:16px 20px}
+  .resource-category-toggle h3{font-size:18px}
+  .resource-category-content{padding:0 20px 20px}
   
   /* Hide desktop theme toggle on mobile */
   .theme-toggle{
@@ -342,7 +345,40 @@ footer .container{display:flex;align-items:center;justify-content:space-between;
 
 /* Resources */
 .resource-category{margin-bottom:40px}
-.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.resource-category-expandable{
+  margin-bottom:24px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  transition:background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow:hidden;
+}
+.resource-category-toggle{
+  width:100%;padding:20px 24px;background:transparent;border:none;
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;color:var(--text);text-align:left;
+  transition:background-color 0.3s ease;
+}
+.resource-category-toggle:hover{
+  background:var(--soft);
+}
+.resource-category-toggle h3{
+  margin:0;font-size:20px;color:var(--text);
+}
+.toggle-icon{
+  font-size:14px;transition:transform 0.3s ease;
+  color:var(--brand);font-weight:bold;
+}
+.resource-category-toggle[aria-expanded="true"] .toggle-icon{
+  transform:rotate(180deg);
+}
+.resource-category-content{
+  padding:0 24px 24px;animation:slideDown 0.3s ease;
+}
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:20px}
 .resource-item{
   background:var(--card);border:1px solid var(--border);
   border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);

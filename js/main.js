@@ -163,6 +163,52 @@
     go(0); start();
   })();
 
+  // ===== Expandable Resource Categories =====
+  (function expandableResources() {
+    function toggleContent(button) {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      const contentId = button.getAttribute('aria-controls');
+      if (!contentId) return;
+      
+      const content = document.getElementById(contentId);
+      if (!content) {
+        console.warn('Content element not found:', contentId);
+        return;
+      }
+      
+      if (isExpanded) {
+        button.setAttribute('aria-expanded', 'false');
+        content.style.display = 'none';
+      } else {
+        button.setAttribute('aria-expanded', 'true');
+        content.style.display = 'block';
+      }
+    }
+    
+    // Use event delegation - works even if DOM isn't fully ready
+    // This handles clicks on the button or any of its children (h3, icon, etc.)
+    document.addEventListener('click', function(e) {
+      const toggle = e.target.closest('.resource-category-toggle');
+      if (toggle) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleContent(toggle);
+      }
+    });
+    
+    // Keyboard support via event delegation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const toggle = e.target.closest('.resource-category-toggle');
+        if (toggle) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleContent(toggle);
+        }
+      }
+    });
+  })();
+
   // ===== Contact form: AJAX submit to your backend, show thank-you =====
   (function contactForm() {
     const form = document.getElementById('contact-form');
